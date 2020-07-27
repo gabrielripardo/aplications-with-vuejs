@@ -10,14 +10,15 @@
 
     <div id="app">
 
-        <input type="text" @:click="changeInput()">
-        
-        <button @click="num++">Incremetar +</button> <!-- @ equal to v-on  (sintaxe sugar)-->
-        {{ num }}
+        <input type="text" @keyup="changeInput()" placeholder="input with changeInput()">
+        <input type="text" @keyup="inputWithParam(2, $event)" placeholder="input with inputWithParam()">
+        <hr>
         <button @click="num--">Decrementar -</button> <!-- @ equal to v-on  -->
+        {{ num }}
+        <button @click="num++">Incremetar +</button> <!-- @ equal to v-on  (sintaxe sugar)-->
 
     </div>
-    
+
     <script src="vue.js"></script>
     <script>
         new Vue({
@@ -26,10 +27,24 @@
                 num: 0,
             },
             methods: {
-                changeInput: funtion(){
-                    this.num = this.num + 10
+                changeInput: function(){
+                    this.num++;
+                    console.log(event)
+                    console.log(event.target)
+                    console.log(event.target.value)
                 },
+                // Função com parâmetro
+                inputWithParam: function(value, event){
+                    // this.num = value;
+                    valor = parseInt(event.target.value);
+                    console.log(value,' + ', valor, ' = ', value+valor);                                        
+                }                   
             }
+            // methods: {
+            //     changeInput: funtion(){
+            //         this.num = this.num + 10
+            //     },
+            // }
         });
     </script>
 </body>
