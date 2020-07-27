@@ -17,6 +17,12 @@
         <p v-once> <!-- v-once directive -->
             Text fixed (no change): <strong>{{ email }}</strong> (this is value from data{email})
         </p>
+
+        <div v-html="myparagaph"></div>
+
+        <!-- <p>
+            This is a simple <strong>paragraph example</strong>, where contains tags <em>html</em>. <br>Text created though v-html directive.
+        </p> -->
     </div>
 
     <script src="vue.js"></script>
@@ -25,6 +31,7 @@
             el: '#app',
             data: {
                 email: 'teste@mail.com',
+                myparagaph: '<p> This is a simple <strong>paragrah example</strong>!!!</p>'
             }
         })
     </script>
