@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Way databind - VueJs</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Two binding - digit and show</h1>
+        <h2>Utilizing v-model directive</h2>
+        <input type="text" v-model:value="email">
+        <p>
+            Text here: <strong>{{ email }}</strong> 
+        </p>
+    
+        <p v-once> <!-- v-once directive -->
+            Text fixed (no change): <strong>{{ email }}</strong>
+        </p>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                email: 'teste@mail.com',
+            }
+        })
+    </script>
+</body>
+</html>
